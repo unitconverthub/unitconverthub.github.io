@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Unit Converter — Convert Length, Weight, Temperature &amp; More | UnitConverterHub</title>
+<meta name="description" content="Free online unit converter for length, weight, temperature, volume, area, speed, time, data storage and pressure. Instant results, conversion formulas and quick reference tables." />
+<link rel="canonical" href="https://unitconverterhub.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="UnitConverterHub" />
+<meta property="og:title" content="Unit Converter — Convert Length, Weight, Temperature & More" />
+<meta property="og:description" content="Free online unit converter for length, weight, temperature, volume, area, speed, time, data storage and pressure. Instant results, conversion formulas and quick reference tables." />
+<meta property="og:url" content="https://unitconverterhub.github.io/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Unit Converter | UnitConverterHub" />
+<meta name="twitter:description" content="Convert length, weight, temperature, volume, area, speed, time, data and pressure instantly, with formulas and reference tables." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "UnitConverterHub",
+  "url": "https://unitconverterhub.github.io/",
+  "description": "Free online unit converter for length, weight, temperature, volume, area, speed, time, data storage and pressure."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "UnitConverterHub Unit Converter",
+  "url": "https://unitconverterhub.github.io/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Convert between units of length, weight, temperature, volume, area, speed, time, data storage and pressure with instant results and shown formulas."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How do I convert kilometres to miles?", "acceptedAnswer": { "@type": "Answer", "text": "Multiply the number of kilometres by 0.621371. For example, 10 km × 0.621371 = 6.21 miles. To go the other way, multiply miles by 1.609344 to get kilometres." } },
+    { "@type": "Question", "name": "What is the formula for converting Celsius to Fahrenheit?", "acceptedAnswer": { "@type": "Answer", "text": "Multiply the Celsius temperature by 9, divide by 5, then add 32. So 20 °C becomes (20 × 9 ÷ 5) + 32 = 68 °F." } },
+    { "@type": "Question", "name": "How many grams are in a pound?", "acceptedAnswer": { "@type": "Answer", "text": "One pound is exactly 453.59237 grams by international definition. For everyday kitchen use, rounding to 454 grams is close enough." } },
+    { "@type": "Question", "name": "What is the difference between a US gallon and a UK gallon?", "acceptedAnswer": { "@type": "Answer", "text": "A US gallon is 3.785 litres, while a UK (imperial) gallon is 4.546 litres — about 20% larger. Always check which gallon a recipe or fuel figure refers to." } },
+    { "@type": "Question", "name": "How do I convert inches to centimetres?", "acceptedAnswer": { "@type": "Answer", "text": "Multiply inches by 2.54. One inch is defined as exactly 2.54 centimetres, so a 10-inch object measures 25.4 cm." } },
+    { "@type": "Question", "name": "What is a hectare in acres?", "acceptedAnswer": { "@type": "Answer", "text": "One hectare equals 10,000 square metres, which is about 2.471 acres. A standard football pitch is roughly 0.7 hectares." } },
+    { "@type": "Question", "name": "How are kilobytes, megabytes and gigabytes related?", "acceptedAnswer": { "@type": "Answer", "text": "In decimal (SI) terms each step is 1,000 times the previous: 1 MB = 1,000 KB and 1 GB = 1,000 MB. Computers also use binary units — kibibytes, mebibytes and gibibytes — where each step is 1,024." } },
+    { "@type": "Question", "name": "What does PSI mean and how does it relate to bar?", "acceptedAnswer": { "@type": "Answer", "text": "PSI stands for pounds per square inch, the pressure unit common in the US. One bar equals about 14.5038 PSI, so a tyre at 2.2 bar is about 32 PSI." } },
+    { "@type": "Question", "name": "How fast is a knot in kilometres per hour?", "acceptedAnswer": { "@type": "Answer", "text": "One knot is one nautical mile per hour, which equals exactly 1.852 km/h. Knots are used in shipping and aviation because the nautical mile is tied to the Earth's geometry." } },
+    { "@type": "Question", "name": "Why does temperature need a formula instead of a simple multiplier?", "acceptedAnswer": { "@type": "Answer", "text": "Most unit pairs share the same zero point, so a single multiplier works. Temperature scales start at different zeros — 0 °C is 32 °F — so conversion needs both a multiplication and an offset, which is why the converter uses full formulas for temperature." } }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f5f7f6; --surface:#ffffff; --surface2:#edf1ef; --ink:#15211d; --muted:#55665f;
+    --line:#d9e0dc; --accent:#0b6e4f; --accent-strong:#08573e; --accent-soft:#e2f1ea;
+    --amber:#b97a16; --amber-soft:#faf0da; --radius:14px;
+    --shadow:0 10px 30px rgba(16,42,34,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1311; --surface:#151d1a; --surface2:#1b2521; --ink:#e7efeb; --muted:#9db0a7;
+      --line:#27342f; --accent:#35c294; --accent-strong:#5fd3ab; --accent-soft:#14352a;
+      --amber:#e0a83f; --amber-soft:#33270f; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.6; }
+  button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){ min-height:2.25rem; }
+  a{ color:var(--accent); }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 20px; }
+
+  header.site{ position:sticky; top:0; z-index:50; background:var(--surface); border-bottom:1px solid var(--line); }
+  .site-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0; flex-wrap:wrap; }
+  .brand{ font-weight:800; font-size:1.25rem; letter-spacing:-.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:10px; }
+  .brand .mark{ width:34px; height:34px; border-radius:9px; background:var(--accent); color:#fff; display:grid; place-items:center; font-family:"IBM Plex Mono",monospace; font-size:.95rem; font-weight:600; }
+  @media (prefers-color-scheme: dark){ .brand .mark{ color:#0d1311; } }
+  nav.main{ display:flex; gap:4px; flex-wrap:wrap; }
+  nav.main a{ color:var(--ink); text-decoration:none; font-weight:600; font-size:.95rem; padding:8px 13px; border-radius:9px; min-height:2.25rem; display:inline-flex; align-items:center; }
+  nav.main a:hover{ background:var(--surface2); }
+  nav.main a.active{ background:var(--accent-soft); color:var(--accent-strong); }
+
+  .page{ display:none; }
+  .page.on{ display:block; }
+  main{ padding:34px 0 60px; }
+
+  .hero{ max-width:760px; }
+  .hero h1{ font-size:clamp(1.9rem,4.5vw,2.9rem); line-height:1.12; letter-spacing:-.02em; margin:6px 0 12px; font-weight:800; }
+  .hero p{ color:var(--muted); font-size:1.08rem; margin:0 0 8px; }
+
+  .converter{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px; margin-top:22px; }
+  .tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .tab{ border:1px solid var(--line); background:var(--surface2); color:var(--ink); border-radius:999px; padding:8px 15px; font:inherit; font-weight:600; font-size:.92rem; cursor:pointer; min-height:2.5rem; }
+  .tab:hover{ border-color:var(--accent); }
+  .tab.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  @media (prefers-color-scheme: dark){ .tab.active{ color:#0d1311; } }
+  .conv-grid{ display:grid; grid-template-columns:1fr auto 1fr; gap:14px; align-items:end; }
+  .field label{ display:block; font-size:.82rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+  .field input, .field select{ width:100%; font:inherit; padding:11px 13px; border:1.5px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); }
+  .field input{ font-family:"IBM Plex Mono",monospace; font-size:1.25rem; font-weight:600; }
+  .field input:focus, .field select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }
+  .field select{ margin-top:8px; font-weight:600; }
+  .swap{ width:48px; height:48px; border-radius:50%; border:1.5px solid var(--line); background:var(--accent-soft); color:var(--accent-strong); font-size:1.25rem; cursor:pointer; display:grid; place-items:center; margin-bottom:2px; }
+  .swap:hover{ background:var(--accent); color:#fff; }
+  .result-line{ margin-top:18px; font-size:1.12rem; font-weight:700; }
+  .result-line .mono{ font-family:"IBM Plex Mono",monospace; }
+  .formula{ margin-top:8px; background:var(--amber-soft); border-radius:10px; padding:11px 14px; font-size:.95rem; }
+  .formula strong{ color:var(--amber); }
+  .formula .mono{ font-family:"IBM Plex Mono",monospace; font-weight:600; }
+  @media (max-width:640px){
+    .conv-grid{ grid-template-columns:1fr; }
+    .swap{ margin:0 auto; transform:rotate(90deg); }
+  }
+
+  .ref{ margin-top:26px; }
+  .ref h2{ font-size:1.25rem; margin:0 0 4px; letter-spacing:-.01em; }
+  .ref p{ color:var(--muted); margin:0 0 12px; font-size:.95rem; }
+  .table-scroll{ overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); }
+  .table-scroll table{ min-width:0; }
+  .table-scroll td.num{ white-space:nowrap; }
+  table{ border-collapse:collapse; width:100%; min-width:420px; }
+  th,td{ text-align:left; padding:10px 16px; border-bottom:1px solid var(--line); }
+  th{ background:var(--surface2); font-size:.82rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+  tr:last-child td{ border-bottom:none; }
+  td.num, th.num{ text-align:right; font-family:"IBM Plex Mono",monospace; }
+
+  section.block{ margin-top:52px; }
+  section.block > h2{ font-size:1.6rem; letter-spacing:-.02em; margin:0 0 6px; }
+  section.block > p.lede{ color:var(--muted); margin:0 0 20px; max-width:680px; }
+  .cards{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+  .card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px; text-decoration:none; color:var(--ink); display:block; }
+  .card:hover{ border-color:var(--accent); box-shadow:var(--shadow); }
+  .card .tag{ display:inline-block; font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent-strong); background:var(--accent-soft); padding:3px 9px; border-radius:999px; margin-bottom:10px; }
+  .card h3{ margin:0 0 7px; font-size:1.08rem; line-height:1.35; }
+  .card p{ margin:0; color:var(--muted); font-size:.93rem; }
+  .card .mins{ margin-top:12px; font-size:.82rem; font-weight:600; color:var(--muted); }
+
+  .faq-item{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); margin-bottom:10px; }
+  .faq-item summary{ cursor:pointer; font-weight:700; padding:15px 18px; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:"+"; font-size:1.3rem; color:var(--accent); font-weight:600; }
+  .faq-item[open ] summary::after{ content:"–"; }
+  .faq-item .ans{ padding:0 18px 16px; color:var(--muted); }
+  .faq-item .ans p{ margin:0; }
+
+  .prose{ max-width:760px; }
+  .prose h1{ font-size:clamp(1.7rem,4vw,2.4rem); line-height:1.18; letter-spacing:-.02em; margin:0 0 10px; }
+  .prose .meta{ color:var(--muted); font-size:.9rem; margin-bottom:22px; }
+  .prose h2{ font-size:1.35rem; letter-spacing:-.01em; margin:32px 0 8px; }
+  .prose h3{ font-size:1.1rem; margin:22px 0 6px; }
+  .prose p{ margin:0 0 14px; }
+  .prose ul, .prose ol{ margin:0 0 14px; padding-left:22px; }
+  .prose li{ margin-bottom:6px; }
+  .prose .callout{ background:var(--accent-soft); border-radius:10px; padding:14px 17px; margin:18px 0; }
+  .prose .callout p{ margin:0; }
+  .prose table{ min-width:0; }
+  .table-box{ border:1px solid var(--line); border-radius:var(--radius); overflow-x:auto; background:var(--surface); margin:16px 0; }
+  .backlink{ display:inline-block; margin-bottom:18px; font-weight:600; text-decoration:none; }
+
+  footer.site{ border-top:1px solid var(--line); background:var(--surface); padding:30px 0 36px; margin-top:20px; }
+  .foot-grid{ display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+  .foot-grid nav{ display:flex; gap:6px 18px; flex-wrap:wrap; }
+  .foot-grid nav a{ color:var(--muted); text-decoration:none; font-size:.92rem; font-weight:600; padding:6px 0; min-height:2rem; display:inline-flex; align-items:center; }
+  .foot-grid nav a:hover{ color:var(--accent); }
+  .copy{ color:var(--muted); font-size:.9rem; margin-top:14px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap site-inner">
+    <a class="brand" href="#/"><span class="mark">⇄</span>UnitConverterHub</a>
+    <nav class="main" aria-label="Main navigation">
+      <a href="#/" data-nav="home">Converter</a>
+      <a href="#/articles" data-nav="articles">Articles</a>
+      <a href="#/faq" data-nav="faq">FAQ</a>
+      <a href="#/about" data-nav="about">About</a>
+      <a href="#/contact" data-nav="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ======================= HOME ======================= -->
+<section class="page" data-page="home">
+  <div class="hero">
+    <h1>Convert any unit, instantly and accurately</h1>
+    <p>Nine categories, dozens of units, and every result worked out in your browser the moment you type — with the formula shown, so you can check the maths yourself.</p>
+  </div>
+
+  <div class="converter" id="converter">
+    <div class="tabs" id="tabs" role="tablist" aria-label="Conversion categories"></div>
+    <div class="conv-grid">
+      <div class="field">
+        <label for="fromVal">From</label>
+        <input id="fromVal" type="text" inputmode="decimal" value="1" autocomplete="off" />
+        <select id="fromUnit" aria-label="From unit"></select>
+      </div>
+      <button class="swap" id="swapBtn" type="button" aria-label="Swap units" title="Swap units">⇄</button>
+      <div class="field">
+        <label for="toVal">To</label>
+        <input id="toVal" type="text" readonly tabindex="-1" />
+        <select id="toUnit" aria-label="To unit"></select>
+      </div>
+    </div>
+    <div class="result-line" id="resultLine" aria-live="polite"></div>
+    <div class="formula" id="formulaBox"></div>
+
+    <div class="ref">
+      <h2 id="refTitle">Quick reference</h2>
+      <p id="refSub"></p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th id="refFromHead">From</th><th class="num" id="refToHead">Result</th></tr></thead>
+          <tbody id="refBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <section class="block">
+    <h2>Guides and articles</h2>
+    <p class="lede">Plain-English explainers on how measurement systems work, how to convert units by hand, and the conversions people actually need in the kitchen, the workshop and the classroom.</p>
+    <div class="cards" id="homeCards"></div>
+    <p style="margin-top:18px"><a href="#/articles"><strong>Browse all articles →</strong></a></p>
+  </section>
+
+  <section class="block" id="faqSection">
+    <h2>Frequently asked questions</h2>
+    <p class="lede">Quick answers to the conversion questions people ask most often.</p>
+    <div id="faqList"></div>
+  </section>
+</section>
+
+<!-- ======================= ARTICLES INDEX ======================= -->
+<section class="page" data-page="articles">
+  <div class="hero">
+    <h1>Articles</h1>
+    <p>Original guides from the UnitConverterHub team — how units work, where they came from, and how to convert between them with confidence.</p>
+  </div>
+  <div class="cards" id="articleCards" style="margin-top:24px"></div>
+</section>
+
+<!-- ======================= ARTICLE 1 ======================= -->
+<section class="page" data-page="metric-vs-imperial">
+  <article class="prose">
+    <a class="backlink" href="#/articles">← All articles</a>
+    <h1>Metric vs Imperial: The Two Measurement Systems Explained</h1>
+    <p class="meta">UnitConverterHub · 6 min read · Measurement systems</p>
+    <p>Almost every measurement you will ever make belongs to one of two families: the metric system or the imperial system. They measure the same world — the same roads, the same bags of flour, the same summer afternoons — but they slice it up in completely different ways. Understanding how each system is built makes converting between them far less mysterious.</p>
+    <h2>How the metric system is built</h2>
+    <p>The metric system, formally the International System of Units (SI), is built on powers of ten. Each quantity has one base unit — the metre for length, the kilogram for mass, the litre for volume — and every larger or smaller unit is that base multiplied or divided by 10, 100 or 1,000. A kilometre is 1,000 metres; a centimetre is one hundredth of a metre; a millilitre is one thousandth of a litre.</p>
+    <p>The prefixes do the heavy lifting: milli- means a thousandth, centi- a hundredth, kilo- a thousand. Learn a handful of prefixes and you can read almost any metric unit on sight, even one you have never used before. The units also connect to each other neatly: a litre is exactly the volume of a cube 10 cm on each side, and a kilogram was historically tied to the mass of a litre of water.</p>
+    <h2>How the imperial system is built</h2>
+    <p>The imperial system grew out of centuries of British trade and custom rather than a single design. Its units relate to each other by irregular steps that were once convenient in daily life: 12 inches in a foot, 3 feet in a yard, 1,760 yards in a mile; 16 ounces in a pound, 14 pounds in a stone; 8 pints in a gallon. None of these numbers is wrong — they are simply historical. A foot was roughly a foot, an inch roughly a thumb's width, and the system accumulated over time.</p>
+    <p>The United States uses a closely related set called US customary units. They share most names with imperial units — inch, foot, pound — but a few differ, most famously volume: a US gallon is 3.785 litres while an imperial gallon is 4.546 litres. That difference catches people out in recipes and fuel-economy figures to this day.</p>
+    <h2>Where each system is used</h2>
+    <p>Metric is the official system in the overwhelming majority of the world and is the standard language of science, medicine and engineering everywhere, including in the United States. Imperial and US customary units remain in everyday use in the US for road distances, body weight and cooking, and linger in the UK in a hybrid form: miles on road signs and pints in pubs, but grams and litres in shops.</p>
+    <div class="table-box"><table>
+      <thead><tr><th>Quantity</th><th>Metric</th><th>Imperial / US</th></tr></thead>
+      <tbody>
+        <tr><td>Length</td><td>millimetre, centimetre, metre, kilometre</td><td>inch, foot, yard, mile</td></tr>
+        <tr><td>Mass</td><td>gram, kilogram, tonne</td><td>ounce, pound, stone, ton</td></tr>
+        <tr><td>Volume</td><td>millilitre, litre</td><td>fluid ounce, pint, quart, gallon</td></tr>
+        <tr><td>Temperature</td><td>Celsius</td><td>Fahrenheit</td></tr>
+      </tbody>
+    </table></div>
+    <h2>Which system is "better"?</h2>
+    <p>For calculation, metric wins easily: converting within the system is just moving a decimal point, and the units interlock. For everyday intuition, the honest answer is whichever system you grew up with. Someone raised on Fahrenheit feels that 85 °F is a hot day without converting anything; someone raised on Celsius feels the same about 29 °C. Neither intuition is more correct — both are learned.</p>
+    <h2>The key conversion anchors</h2>
+    <p>If you only memorise a few bridges between the systems, make it these: 1 inch = 2.54 cm exactly, 1 mile ≈ 1.609 km, 1 pound ≈ 453.6 grams, and 1 litre ≈ 0.264 US gallons. With those four anchors and the converter at the top of this site, you can move between the two systems fluently — which, in a world that uses both, is the skill that actually matters.</p>
+  </article>
+</section>
+
+<!-- ======================= ARTICLE 2 ======================= -->
+<section class="page" data-page="how-to-convert-units">
+  <article class="prose">
+    <a class="backlink" href="#/articles">← All articles</a>
+    <h1>How to Convert Units: A Simple Step-by-Step Method</h1>
+    <p class="meta">UnitConverterHub · 5 min read · How-to</p>
+    <p>Unit conversion looks like a pile of unrelated facts — 2.54 here, 1.609 there, 453.6 somewhere else. In reality almost every conversion follows one simple method. Learn the method once and you can convert anything, including units you have never seen before, with nothing more than a single known relationship.</p>
+    <h2>Step 1: Find the relationship</h2>
+    <p>Every conversion starts from one true statement linking the two units, such as "1 mile = 1.609344 kilometres" or "1 inch = 2.54 centimetres". You only ever need the relationship for a single unit of the thing you are converting from. Reference tables, textbooks and the quick reference table on our converter all give relationships in exactly this form.</p>
+    <h2>Step 2: Decide whether to multiply or divide</h2>
+    <p>This is where most mistakes happen, and there is a reliable way to think about it: converting into a <em>smaller</em> unit means you will have <em>more</em> of them, so you multiply. Converting into a <em>bigger</em> unit means fewer of them, so you divide. Kilometres to metres? Metres are smaller, the number grows — multiply by 1,000. Grams to kilograms? Kilograms are bigger, the number shrinks — divide by 1,000.</p>
+    <h2>Step 3: Do the calculation</h2>
+    <p>Work through a full example. Convert 5 miles to kilometres. The relationship is 1 mile = 1.609344 km. Kilometres are the smaller unit here (more of them fit in the same distance), so multiply: 5 × 1.609344 = 8.04672 km. To reverse it, divide: 8.04672 ÷ 1.609344 = 5 miles exactly.</p>
+    <div class="callout"><p><strong>The unit-factor shortcut:</strong> write the relationship as a fraction that equals 1 — for example (1.609344 km / 1 mile) — and multiply your value by it. The old unit cancels out on paper, leaving only the new one. If the units don't cancel, you have the fraction upside down.</p></div>
+    <h2>Step 4: Sanity-check the answer</h2>
+    <p>Before trusting a result, ask whether its size makes sense. A person cannot weigh 4,500 kilograms or stand 0.0018 metres tall. Most conversion errors are decimal-point slips or multiply-instead-of-divide mistakes, and both produce answers that are wildly too big or too small — exactly the kind a two-second sanity check catches.</p>
+    <h2>Converting in two hops</h2>
+    <p>Sometimes there is no direct relationship handy, but there is a path through a middle unit. Stones to grams, for example: 1 stone = 14 pounds, and 1 pound = 453.59237 grams, so 1 stone = 14 × 453.59237 = 6,350.29 grams. Chained conversions multiply their factors together. This is also exactly how our converter works internally: every unit in a category is defined against one base unit, and any conversion is a trip down to the base and back up.</p>
+    <h2>The exception: temperature</h2>
+    <p>Temperature is the famous exception to the multiply-or-divide rule, because its scales have different zero points as well as different step sizes. Celsius to Fahrenheit needs a multiplication <em>and</em> an addition: °F = (°C × 9/5) + 32. Our <a href="#/temperature-conversion-guide">temperature conversion guide</a> walks through why, and the converter above handles it with the full formula rather than a single factor.</p>
+    <h2>A quick practice set</h2>
+    <ul>
+      <li>12 inches → centimetres: 12 × 2.54 = <strong>30.48 cm</strong></li>
+      <li>2.5 kg → grams: 2.5 × 1,000 = <strong>2,500 g</strong></li>
+      <li>60 mph → km/h: 60 × 1.609344 = <strong>96.56 km/h</strong></li>
+      <li>500 ml → litres: 500 ÷ 1,000 = <strong>0.5 L</strong></li>
+    </ul>
+    <p>Once the method feels natural, the individual factors stop being trivia to memorise and become what they really are: just the first step of a process you already understand.</p>
+  </article>
+</section>
+
+<!-- ======================= ARTICLE 3 ======================= -->
+<section class="page" data-page="temperature-conversion-guide">
+  <article class="prose">
+    <a class="backlink" href="#/articles">← All articles</a>
+    <h1>Temperature Conversion: Celsius, Fahrenheit and Kelvin</h1>
+    <p class="meta">UnitConverterHub · 6 min read · Temperature</p>
+    <p>Temperature is the one everyday measurement where conversion takes more than a single multiplication. The reason is simple once you see it: the Celsius, Fahrenheit and Kelvin scales do not share a zero point, and two of them do not even share a step size. This guide explains each scale, gives the exact formulas, and shares the mental shortcuts worth knowing.</p>
+    <h2>The three scales at a glance</h2>
+    <p><strong>Celsius (°C)</strong> is anchored to water: 0 °C is its freezing point and 100 °C its boiling point at standard pressure. It is the everyday scale in most of the world and the working scale of science alongside Kelvin.</p>
+    <p><strong>Fahrenheit (°F)</strong> places water's freezing point at 32 °F and boiling at 212 °F — a span of 180 degrees, which means each Fahrenheit degree is only 5/9 the size of a Celsius degree. It remains the everyday scale in the United States.</p>
+    <p><strong>Kelvin (K)</strong> starts at absolute zero, the coldest temperature physically possible, so it has no negative values. Its steps are the same size as Celsius degrees, which makes it the natural scale for physics: 0 K = −273.15 °C.</p>
+    <h2>The exact formulas</h2>
+    <div class="table-box"><table>
+      <thead><tr><th>Conversion</th><th>Formula</th></tr></thead>
+      <tbody>
+        <tr><td>Celsius → Fahrenheit</td><td>°F = (°C × 9/5) + 32</td></tr>
+        <tr><td>Fahrenheit → Celsius</td><td>°C = (°F − 32) × 5/9</td></tr>
+        <tr><td>Celsius → Kelvin</td><td>K = °C + 273.15</td></tr>
+        <tr><td>Kelvin → Celsius</td><td>°C = K − 273.15</td></tr>
+        <tr><td>Fahrenheit → Kelvin</td><td>K = (°F − 32) × 5/9 + 273.15</td></tr>
+        <tr><td>Kelvin → Fahrenheit</td><td>°F = (K − 273.15) × 9/5 + 32</td></tr>
+      </tbody>
+    </table></div>
+    <p>Notice the pattern: converting to or from Kelvin is a single shift of 273.15 once you are in Celsius, because the two scales share a step size. Only Fahrenheit needs the 9/5 or 5/9 scaling as well.</p>
+    <h2>Worked examples</h2>
+    <p>A comfortable room at 21 °C: (21 × 9/5) + 32 = 37.8 + 32 = <strong>69.8 °F</strong>. A hot oven at 400 °F: (400 − 32) × 5/9 = 368 × 5/9 = <strong>204.4 °C</strong>. Human body temperature, 37 °C, is 98.6 °F — and in Kelvin, 37 + 273.15 = <strong>310.15 K</strong>.</p>
+    <h2>Reference points worth memorising</h2>
+    <ul>
+      <li><strong>−40</strong> is the crossover point: −40 °C = −40 °F exactly.</li>
+      <li><strong>0 °C = 32 °F</strong> — water freezes.</li>
+      <li><strong>20 °C = 68 °F</strong> — a mild day.</li>
+      <li><strong>37 °C = 98.6 °F</strong> — normal body temperature.</li>
+      <li><strong>100 °C = 212 °F</strong> — water boils.</li>
+      <li><strong>180 °C = 356 °F</strong> — a typical baking temperature (often rounded to 350 °F in US recipes).</li>
+    </ul>
+    <h2>A mental shortcut for weather</h2>
+    <p>For a fast estimate, double the Celsius temperature and add 30: 25 °C → 50 + 30 = 80 °F, close to the exact 77 °F. Going the other way, subtract 30 from Fahrenheit and halve it. The shortcut drifts by a few degrees at the extremes, but for deciding whether you need a jacket it is more than good enough — and for anything precise, the converter at the top of this page uses the exact formulas.</p>
+    <h2>Why Kelvin has no degree symbol</h2>
+    <p>Kelvin is written without the ° symbol — just "300 K", never "300 °K" — because it is an absolute scale rather than a relative one. Degrees measure distance from an arbitrary zero; kelvins measure an actual quantity of thermal energy from true zero. It is a small typographic detail that signals a genuinely different kind of scale.</p>
+  </article>
+</section>
+
+<!-- ======================= ARTICLE 4 ======================= -->
+<section class="page" data-page="cooking-conversions-guide">
+  <article class="prose">
+    <a class="backlink" href="#/articles">← All articles</a>
+    <h1>Cooking Conversions: Cups, Grams and Millilitres</h1>
+    <p class="meta">UnitConverterHub · 6 min read · Cooking</p>
+    <p>Every home cook eventually meets a recipe written in the "wrong" units: an American recipe in cups when your kitchen works in grams, or a European one in millilitres when your measuring jug shows fluid ounces. Cooking conversions have one extra complication that pure unit conversion does not — for dry ingredients, weight depends on what is in the cup. This guide explains how to handle all of it.</p>
+    <h2>Volume is easy: cups to millilitres</h2>
+    <p>For liquids, conversion is exact because a cup is a volume and a millilitre is a volume. One US cup = 236.588 ml, usually rounded to 240 ml in recipes. A tablespoon is 14.79 ml (rounded to 15 ml) and a teaspoon 4.93 ml (rounded to 5 ml). Water, milk, oil and stock all convert with these numbers directly.</p>
+    <div class="table-box"><table>
+      <thead><tr><th>US volume</th><th>Millilitres</th></tr></thead>
+      <tbody>
+        <tr><td>1 teaspoon</td><td>≈ 5 ml</td></tr>
+        <tr><td>1 tablespoon</td><td>≈ 15 ml</td></tr>
+        <tr><td>¼ cup</td><td>≈ 60 ml</td></tr>
+        <tr><td>⅓ cup</td><td>≈ 80 ml</td></tr>
+        <tr><td>½ cup</td><td>≈ 120 ml</td></tr>
+        <tr><td>1 cup</td><td>≈ 240 ml</td></tr>
+      </tbody>
+    </table></div>
+    <p>One caution: the Australian tablespoon is 20 ml, not 15 ml, and the metric cup used in Australia and New Zealand is 250 ml. For most recipes the difference is small, but in baking — where ratios matter — it is worth checking the recipe's country of origin.</p>
+    <h2>Weight is trickier: cups to grams</h2>
+    <p>A cup measures volume, a gram measures mass, and the bridge between them is density — which is different for every ingredient. A cup of water weighs about 237 g, but a cup of sifted flour weighs only about 120 g, and a cup of granulated sugar about 200 g. There is no single cups-to-grams factor; there is one per ingredient.</p>
+    <div class="table-box"><table>
+      <thead><tr><th>Ingredient (1 US cup)</th><th>Grams</th></tr></thead>
+      <tbody>
+        <tr><td>Water</td><td>237 g</td></tr>
+        <tr><td>All-purpose flour, spooned &amp; levelled</td><td>≈ 125 g</td></tr>
+        <tr><td>Granulated sugar</td><td>≈ 200 g</td></tr>
+        <tr><td>Brown sugar, packed</td><td>≈ 220 g</td></tr>
+        <tr><td>Butter</td><td>≈ 227 g</td></tr>
+        <tr><td>Cocoa powder</td><td>≈ 85 g</td></tr>
+        <tr><td>Rolled oats</td><td>≈ 90 g</td></tr>
+        <tr><td>Chopped nuts</td><td>≈ 120 g</td></tr>
+      </tbody>
+    </table></div>
+    <h2>Why bakers prefer grams</h2>
+    <p>A cup of flour can vary by 30 grams or more depending on whether it was scooped, spooned, sifted or packed — a swing large enough to turn a light cake dense. Weighing removes that guesswork entirely: 125 g of flour is 125 g however it got into the bowl. That repeatability is why professional bakers work in grams and baker's percentages, and why a small kitchen scale is the single best upgrade for consistent baking.</p>
+    <h2>Oven temperatures</h2>
+    <p>The other conversion every cross-border recipe needs: 350 °F, the most common US baking temperature, is 176.7 °C — usually written as 175 °C or 180 °C in metric recipes. A moderate oven of 180 °C is 356 °F. For fan (convection) ovens, reduce the stated temperature by about 20 °C / 25 °F. Our <a href="#/temperature-conversion-guide">temperature guide</a> covers the formulas in full, and the converter above handles any exact value.</p>
+    <h2>A practical workflow</h2>
+    <ol>
+      <li>Convert liquids with volume-to-volume numbers (cups → ml).</li>
+      <li>Convert dry ingredients with a per-ingredient weight table (cups → g), or weigh as you go.</li>
+      <li>Convert the oven temperature last, and round to the nearest mark your oven actually offers.</li>
+      <li>When in doubt, round gently: cooking tolerates small errors everywhere except baking ratios and oven heat.</li>
+    </ol>
+    <p>With those rules, any recipe in the world becomes usable in your kitchen — which is exactly what a good conversion should do.</p>
+  </article>
+</section>
+
+<!-- ======================= ARTICLE 5 ======================= -->
+<section class="page" data-page="history-of-measurement-units">
+  <article class="prose">
+    <a class="backlink" href="#/articles">← All articles</a>
+    <h1>Why the World Uses Different Units: A Short History</h1>
+    <p class="meta">UnitConverterHub · 6 min read · History</p>
+    <p>It can feel absurd that humanity measures the same planet with incompatible rulers. But units were never designed as a global system — they were local tools, invented again and again wherever people built, traded and farmed. The variety we live with today is the fossil record of that history.</p>
+    <h2>Units from the human body</h2>
+    <p>The earliest units were the ones always at hand. The cubit measured from elbow to fingertip and built the pyramids. The foot was a foot, the inch a thumb's width (its name traces to the Latin <em>uncia</em>, a twelfth part — hence twelve inches to the foot), and the yard was linked in legend to a king's outstretched arm. Body-based units were wonderfully portable and hopelessly inconsistent: your foot and my foot differ, and so did every town's.</p>
+    <h2>Trade forces standards</h2>
+    <p>As trade widened, inconsistency became expensive. A bushel of grain that changed size at the county border invited cheating and quarrels. Monarchs and cities responded with official standards — physical objects kept under guard, like the standard yard bar in London — and laws tying local measures to them. Britain's imperial system, formalised in 1824, was one such tidying-up: a single set of gallons, pounds and yards for an empire. The United States, having inherited the older British measures before that reform, kept its own versions — which is why the US and imperial gallons still differ today.</p>
+    <h2>The metric revolution</h2>
+    <p>Revolutionary France attempted something bolder: throw the patchwork away and rebuild measurement from nature itself. In the 1790s the metre was defined as one ten-millionth of the distance from the North Pole to the equator through Paris, surveyed by astronomers over six gruelling years. The kilogram was the mass of a litre of water. The system was decimal, universal and — in principle — belonged to no king. Adoption was slow at first, even in France, but the logic was irresistible to scientists and, eventually, to governments: by the mid-20th century most of the world had gone metric.</p>
+    <h2>Why some places held out</h2>
+    <p>The United States considered metric adoption repeatedly — Thomas Jefferson studied the French system, and the US legally defined its customary units in metric terms in 1893 — but the cost of converting road signs, machinery, tooling and habits always outweighed the benefit in the short term. Britain began metrication in 1965 and completed it in shops, but kept miles and pints where the public resisted. The pattern is the same everywhere: units change when the practical gain beats the practical pain, and not before.</p>
+    <h2>Units defined by physics itself</h2>
+    <p>The modern ending to the story is elegant. In 2019 the SI system was redefined so that every base unit rests on a fixed constant of nature — the speed of light, the Planck constant, the charge of the electron. The kilogram is no longer a metal cylinder in a Paris vault slowly changing mass; it is a definition any advanced laboratory can realise from first principles. Measurement, which began with elbows and thumbs, now begins with the constants of the universe.</p>
+    <h2>Living with two systems</h2>
+    <p>For the foreseeable future, daily life will stay bilingual in units: kilometres beside miles, grams beside ounces. That is less a failure than a reflection of how deeply measurement is woven into habit and infrastructure. The practical skill is fluency — knowing the anchors between systems and converting confidently when it counts. That is the whole reason this site exists.</p>
+  </article>
+</section>
+
+<!-- ======================= FAQ PAGE ======================= -->
+<section class="page" data-page="faq">
+  <div class="prose">
+    <h1>Frequently asked questions</h1>
+    <p class="meta">Quick answers to the conversion questions people ask most often.</p>
+  </div>
+  <div id="faqListPage" style="max-width:760px"></div>
+</section>
+
+<!-- ======================= ABOUT ======================= -->
+<section class="page" data-page="about">
+  <article class="prose">
+    <h1>About UnitConverterHub</h1>
+    <p>UnitConverterHub is a free online unit converter built around a simple idea: a conversion tool should show its working. Every result on this site is calculated in your browser the moment you type, using internationally defined conversion factors, and the formula behind each conversion is displayed next to the result so you can verify it, learn it, or reuse it by hand.</p>
+    <h2>What you can convert</h2>
+    <p>The converter covers nine categories — length, weight and mass, temperature, volume, area, speed, time, data storage and pressure — including the units people genuinely use, from millimetres and miles to knots, gibibytes and PSI. Each category includes a quick reference table for checking common values at a glance.</p>
+    <h2>Accuracy</h2>
+    <p>Factors on this site follow international definitions: the inch is exactly 2.54 centimetres, the pound is exactly 0.45359237 kilograms, the nautical mile is exactly 1,852 metres, and temperature conversions use the exact formulas rather than approximations. Where a unit has more than one historical definition (such as gallons), the site labels which one it uses — US or imperial.</p>
+    <h2>Guides and articles</h2>
+    <p>Alongside the converter we publish original guides explaining the two great measurement systems, the step-by-step method behind every conversion, temperature formulas, kitchen conversions and the history of how the world's units came to differ. They are written to be genuinely useful, not filler.</p>
+    <h2>Who runs this site</h2>
+    <p>UnitConverterHub is an independent project maintained by a small team interested in practical tools and clear explanations. If you spot an error or want a unit added, we would like to hear from you via the <a href="#/contact">contact page</a>.</p>
+  </article>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="page" data-page="contact">
+  <article class="prose">
+    <h1>Contact us</h1>
+    <p>Questions, corrections, or a unit you would like us to add? The fastest way to reach the UnitConverterHub team is by email:</p>
+    <div class="callout"><p><strong>Email:</strong> <a href="mailto:contact@unitconverterhub.github.io">contact@unitconverterhub.github.io</a></p></div>
+    <h2>What to include</h2>
+    <ul>
+      <li><strong>Reporting an error:</strong> tell us the category, the two units, the value you entered and the result you expected.</li>
+      <li><strong>Requesting a unit or category:</strong> tell us the unit's name and what it is used for, and we will consider it for a future update.</li>
+      <li><strong>Article feedback:</strong> mention the article title so we can find the passage quickly.</li>
+    </ul>
+    <p>We read every message and aim to reply within a few working days. Please note that we cannot provide certified measurements for legal, medical or engineering use — for those, consult a qualified professional and calibrated instruments.</p>
+  </article>
+</section>
+
+<!-- ======================= PRIVACY ======================= -->
+<section class="page" data-page="privacy">
+  <article class="prose">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: 2026</p>
+    <h2>The short version</h2>
+    <p>UnitConverterHub does its calculations entirely in your browser. The values you type into the converter are never sent to us or stored anywhere — there is no account to create and no form that collects your conversions.</p>
+    <h2>Information we collect</h2>
+    <p>We do not collect personal information through the converter or the articles. If you email us, we receive your email address and the contents of your message, and we use them only to reply to you.</p>
+    <h2>Cookies and analytics</h2>
+    <p>This website may use privacy-respecting analytics to understand which pages and categories are popular, in aggregate form. Any analytics data is statistical — pages visited, approximate region, device type — and is not used to identify individual visitors. The converter itself does not require cookies to function.</p>
+    <h2>Advertising</h2>
+    <p>If advertising is shown on this site in future, it may be provided by third-party networks that use cookies to serve ads based on visits to this and other websites. You can control cookies, including opting out of personalised advertising, through your browser settings and your advertising choices on the relevant networks' pages.</p>
+    <h2>Third-party links</h2>
+    <p>Pages on this site may link to external websites. We are not responsible for the privacy practices of those sites, and we encourage you to read their policies.</p>
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be published on this page with a revised date. Questions about privacy can be sent to <a href="mailto:contact@unitconverterhub.github.io">contact@unitconverterhub.github.io</a>.</p>
+  </article>
+</section>
+
+<!-- ======================= TERMS ======================= -->
+<section class="page" data-page="terms">
+  <article class="prose">
+    <h1>Terms of Use</h1>
+    <p class="meta">Last updated: 2026</p>
+    <h2>Using this site</h2>
+    <p>UnitConverterHub provides a free unit conversion tool and educational articles for general information. By using the site you accept these terms. If you do not agree with them, please do not use the site.</p>
+    <h2>Accuracy of results</h2>
+    <p>We work hard to keep conversion factors correct and follow international definitions, but results are provided "as is" without any warranty. Conversions are suitable for everyday, educational and general professional use; they are not a substitute for calibrated measurement or professional advice in safety-critical, medical, legal or engineering contexts, where you should verify figures independently.</p>
+    <h2>Intellectual property</h2>
+    <p>The text, design and code of this site belong to UnitConverterHub unless otherwise stated. You may use the converter freely and share links to any page. Copying substantial portions of our articles for republication is not permitted without written permission.</p>
+    <h2>Acceptable use</h2>
+    <p>Do not attempt to disrupt the site, scrape it at abusive rates, or misrepresent its content as your own work. We may change, suspend or withdraw any part of the site without notice.</p>
+    <h2>Liability</h2>
+    <p>To the fullest extent allowed by law, UnitConverterHub is not liable for any loss arising from reliance on a conversion or article on this site. Nothing in these terms limits liability that cannot legally be limited.</p>
+    <h2>Changes</h2>
+    <p>These terms may be updated from time to time; the current version will always be on this page. Questions can be sent to <a href="mailto:contact@unitconverterhub.github.io">contact@unitconverterhub.github.io</a>.</p>
+  </article>
+</section>
+
+<!-- ======================= DISCLAIMER ======================= -->
+<section class="page" data-page="disclaimer">
+  <article class="prose">
+    <h1>Disclaimer</h1>
+    <p class="meta">Last updated: 2026</p>
+    <p>The conversions and information on UnitConverterHub are provided for general educational and everyday purposes only. While our factors follow international definitions and our articles are written with care, no tool is infallible: rounding, unusual unit variants and simple mistakes can all affect a result.</p>
+    <p>Do not rely on this site as the sole source for measurements where an error could cause harm or loss — including medical dosing, engineering tolerances, navigation, construction sign-off, legal documents and commercial transactions. In those settings, verify the figure with calibrated instruments or a qualified professional.</p>
+    <p>Some units have more than one definition in the world (gallons, tons and calories are common examples). We label the definitions we use, but you should confirm that the definition matches your context before relying on a result.</p>
+    <p>If you believe any figure or statement on this site is wrong, please tell us at <a href="mailto:contact@unitconverterhub.github.io">contact@unitconverterhub.github.io</a> and we will check it promptly.</p>
+  </article>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="#/"><span class="mark">⇄</span>UnitConverterHub</a>
+      <nav aria-label="Footer navigation">
+        <a href="#/">Converter</a>
+        <a href="#/articles">Articles</a>
+        <a href="#/faq">FAQ</a>
+        <a href="#/about">About</a>
+        <a href="#/contact">Contact</a>
+        <a href="#/privacy">Privacy Policy</a>
+        <a href="#/terms">Terms</a>
+        <a href="#/disclaimer">Disclaimer</a>
+      </nav>
+    </div>
+    <p class="copy">© 2026 UnitConverterHub. All conversions are calculated in your browser using internationally defined factors.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- Conversion data (factors relative to each category's base unit) ---------- */
+var CATS = {
+  length: { label:"Length", base:"m", def:["m","ft"], units:{
+    mm:{n:"Millimetres",s:"mm",f:0.001}, cm:{n:"Centimetres",s:"cm",f:0.01},
+    m:{n:"Metres",s:"m",f:1}, km:{n:"Kilometres",s:"km",f:1000},
+    in:{n:"Inches",s:"in",f:0.0254}, ft:{n:"Feet",s:"ft",f:0.3048},
+    yd:{n:"Yards",s:"yd",f:0.9144}, mi:{n:"Miles",s:"mi",f:1609.344} } },
+  weight: { label:"Weight / Mass", base:"kg", def:["kg","lb"], units:{
+    mg:{n:"Milligrams",s:"mg",f:0.000001}, g:{n:"Grams",s:"g",f:0.001},
+    kg:{n:"Kilograms",s:"kg",f:1}, t:{n:"Tonnes (metric)",s:"t",f:1000},
+    oz:{n:"Ounces",s:"oz",f:0.028349523125}, lb:{n:"Pounds",s:"lb",f:0.45359237},
+    st:{n:"Stones",s:"st",f:6.35029318}, uston:{n:"US Tons",s:"US ton",f:907.18474} } },
+  temperature: { label:"Temperature", temp:true, def:["c","f"], units:{
+    c:{n:"Celsius",s:"°C"}, f:{n:"Fahrenheit",s:"°F"}, k:{n:"Kelvin",s:"K"} } },
+  volume: { label:"Volume", base:"l", def:["l","galus"], units:{
+    ml:{n:"Millilitres",s:"ml",f:0.001}, l:{n:"Litres",s:"L",f:1},
+    m3:{n:"Cubic metres",s:"m³",f:1000},
+    tsp:{n:"Teaspoons (US)",s:"tsp",f:0.00492892159375},
+    tbsp:{n:"Tablespoons (US)",s:"tbsp",f:0.01478676478125},
+    cup:{n:"Cups (US)",s:"cup",f:0.2365882365},
+    floz:{n:"Fluid ounces (US)",s:"fl oz",f:0.0295735295625},
+    ptus:{n:"Pints (US)",s:"pt",f:0.473176473},
+    galus:{n:"Gallons (US)",s:"gal",f:3.785411784},
+    galuk:{n:"Gallons (UK / imperial)",s:"imp gal",f:4.54609} } },
+  area: { label:"Area", base:"m2", def:["m2","ft2"], units:{
+    cm2:{n:"Square centimetres",s:"cm²",f:0.0001}, m2:{n:"Square metres",s:"m²",f:1},
+    ha:{n:"Hectares",s:"ha",f:10000}, km2:{n:"Square kilometres",s:"km²",f:1000000},
+    in2:{n:"Square inches",s:"in²",f:0.00064516}, ft2:{n:"Square feet",s:"ft²",f:0.09290304},
+    yd2:{n:"Square yards",s:"yd²",f:0.83612736}, ac:{n:"Acres",s:"ac",f:4046.8564224},
+    mi2:{n:"Square miles",s:"mi²",f:2589988.110336} } },
+  speed: { label:"Speed", base:"ms", def:["kmh","mph"], units:{
+    ms:{n:"Metres per second",s:"m/s",f:1}, kmh:{n:"Kilometres per hour",s:"km/h",f:0.2777777777777778},
+    mph:{n:"Miles per hour",s:"mph",f:0.44704}, kn:{n:"Knots",s:"kn",f:0.5144444444444445},
+    fts:{n:"Feet per second",s:"ft/s",f:0.3048} } },
+  time: { label:"Time", base:"s", def:["h","min"], units:{
+    msec:{n:"Milliseconds",s:"ms",f:0.001}, s:{n:"Seconds",s:"s",f:1},
+    min:{n:"Minutes",s:"min",f:60}, h:{n:"Hours",s:"h",f:3600},
+    d:{n:"Days",s:"d",f:86400}, wk:{n:"Weeks",s:"wk",f:604800},
+    yr:{n:"Years (365.25 days)",s:"yr",f:31557600} } },
+  data: { label:"Data Storage", base:"B", def:["GB","GiB"], units:{
+    bit:{n:"Bits",s:"bit",f:0.125}, B:{n:"Bytes",s:"B",f:1},
+    KB:{n:"Kilobytes (KB)",s:"KB",f:1000}, MB:{n:"Megabytes (MB)",s:"MB",f:1000000},
+    GB:{n:"Gigabytes (GB)",s:"GB",f:1000000000}, TB:{n:"Terabytes (TB)",s:"TB",f:1000000000000},
+    KiB:{n:"Kibibytes (KiB)",s:"KiB",f:1024}, MiB:{n:"Mebibytes (MiB)",s:"MiB",f:1048576},
+    GiB:{n:"Gibibytes (GiB)",s:"GiB",f:1073741824}, TiB:{n:"Tebibytes (TiB)",s:"TiB",f:1099511627776} } },
+  pressure: { label:"Pressure", base:"Pa", def:["bar","psi"], units:{
+    Pa:{n:"Pascals",s:"Pa",f:1}, kPa:{n:"Kilopascals",s:"kPa",f:1000},
+    bar:{n:"Bar",s:"bar",f:100000}, atm:{n:"Atmospheres",s:"atm",f:101325},
+    psi:{n:"Pounds per sq. inch",s:"psi",f:6894.757293168361},
+    mmHg:{n:"Millimetres of mercury",s:"mmHg",f:133.322387415},
+    inHg:{n:"Inches of mercury",s:"inHg",f:3386.388666666667} } }
+};
+var CAT_ORDER = ["length","weight","temperature","volume","area","speed","time","data","pressure"];
+
+/* ---------- Temperature (formula-based, not factor-based) ---------- */
+function tempToC(v, from){ if(from==="c") return v; if(from==="f") return (v-32)*5/9; return v-273.15; }
+function tempFromC(v, to){ if(to==="c") return v; if(to==="f") return v*9/5+32; return v+273.15; }
+function tempFormula(from, to, v, r){
+  var fv = fmt(v), fr = fmt(r);
+  if(from===to) return "Same unit — the value is unchanged: <span class='mono'>" + fv + " = " + fr + "</span>";
+  if(from==="c" && to==="f") return "Formula: <span class='mono'>°F = (°C × 9/5) + 32</span> → (" + fv + " × 9/5) + 32 = <span class='mono'>" + fr + " °F</span>";
+  if(from==="f" && to==="c") return "Formula: <span class='mono'>°C = (°F − 32) × 5/9</span> → (" + fv + " − 32) × 5/9 = <span class='mono'>" + fr + " °C</span>";
+  if(from==="c" && to==="k") return "Formula: <span class='mono'>K = °C + 273.15</span> → " + fv + " + 273.15 = <span class='mono'>" + fr + " K</span>";
+  if(from==="k" && to==="c") return "Formula: <span class='mono'>°C = K − 273.15</span> → " + fv + " − 273.15 = <span class='mono'>" + fr + " °C</span>";
+  if(from==="f" && to==="k") return "Formula: <span class='mono'>K = (°F − 32) × 5/9 + 273.15</span> → (" + fv + " − 32) × 5/9 + 273.15 = <span class='mono'>" + fr + " K</span>";
+  if(from==="k" && to==="f") return "Formula: <span class='mono'>°F = (K − 273.15) × 9/5 + 32</span> → (" + fv + " − 273.15) × 9/5 + 32 = <span class='mono'>" + fr + " °F</span>";
+  return "";
+}
+
+/* ---------- Formatting ---------- */
+function fmt(n){
+  if(n === null || n === undefined || isNaN(n) || !isFinite(n)) return "—";
+  if(n === 0) return "0";
+  var a = Math.abs(n);
+  if(a !== 0 && (a >= 1e15 || a < 1e-9)){
+    return n.toExponential(6).replace(/(\.\d*?)0+e/,"$1e").replace(/\.e/,"e");
+  }
+  return parseFloat(n.toPrecision(10)).toString();
+}
+
+/* ---------- Converter state & elements ---------- */
+var state = { cat:"length" };
+var tabsEl = document.getElementById("tabs"),
+    fromVal = document.getElementById("fromVal"),
+    toVal = document.getElementById("toVal"),
+    fromUnit = document.getElementById("fromUnit"),
+    toUnit = document.getElementById("toUnit"),
+    resultLine = document.getElementById("resultLine"),
+    formulaBox = document.getElementById("formulaBox"),
+    refTitle = document.getElementById("refTitle"),
+    refSub = document.getElementById("refSub"),
+    refFromHead = document.getElementById("refFromHead"),
+    refToHead = document.getElementById("refToHead"),
+    refBody = document.getElementById("refBody");
+
+function convertValue(catKey, v, from, to){
+  var cat = CATS[catKey];
+  if(cat.temp) return tempFromC(tempToC(v, from), to);
+  return v * cat.units[from].f / cat.units[to].f;
+}
+
+function buildTabs(){
+  tabsEl.innerHTML = "";
+  CAT_ORDER.forEach(function(key){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "tab" + (key===state.cat ? " active" : "");
+    b.textContent = CATS[key].label; b.setAttribute("role","tab");
+    b.setAttribute("aria-selected", key===state.cat ? "true" : "false");
+    b.addEventListener("click", function(){ setCategory(key); });
+    tabsEl.appendChild(b);
+  });
+}
+function fillUnits(){
+  var cat = CATS[state.cat];
+  [fromUnit, toUnit].forEach(function(sel){
+    sel.innerHTML = "";
+    Object.keys(cat.units).forEach(function(k){
+      var o = document.createElement("option");
+      o.value = k; o.textContent = cat.units[k].n + " (" + cat.units[k].s + ")";
+      sel.appendChild(o);
+    });
+  });
+  fromUnit.value = cat.def[0]; toUnit.value = cat.def[1];
+}
+function setCategory(key){
+  state.cat = key;
+  buildTabs(); fillUnits(); update();
+}
+function update(){
+  var cat = CATS[state.cat];
+  var raw = fromVal.value.replace(/,/g,"").trim();
+  var v = parseFloat(raw);
+  var from = fromUnit.value, to = toUnit.value;
+  var fu = cat.units[from], tu = cat.units[to];
+  if(raw === "" || isNaN(v)){
+    toVal.value = ""; resultLine.textContent = "Type a value to see the result.";
+    formulaBox.innerHTML = "<strong>Formula</strong> — enter a number and the working for this pair will appear here.";
+    buildRef(null, from);
+    return;
+  }
+  var r = convertValue(state.cat, v, from, to);
+  toVal.value = fmt(r);
+  resultLine.innerHTML = "<span class='mono'>" + fmt(v) + " " + fu.s + "</span> = <span class='mono'>" + fmt(r) + " " + tu.s + "</span>";
+  if(cat.temp){
+    formulaBox.innerHTML = "<strong>Formula</strong> — " + tempFormula(from, to, v, r);
+  } else if(from === to){
+    formulaBox.innerHTML = "<strong>Formula</strong> — same unit selected on both sides, so the value is unchanged.";
+  } else {
+    var rate = fu.f / tu.f;
+    formulaBox.innerHTML = "<strong>Formula</strong> — multiply the " + fu.n.toLowerCase() +
+      " value by <span class='mono'>" + fmt(rate) + "</span>: <span class='mono'>" + fmt(v) + " × " + fmt(rate) + " = " + fmt(r) + " " + tu.s + "</span>" +
+      "<br>That is because 1 " + fu.s + " = <span class='mono'>" + fmt(rate) + " " + tu.s + "</span>.";
+  }
+  buildRef(v, from);
+}
+function buildRef(v, from){
+  var cat = CATS[state.cat];
+  var fu = cat.units[from];
+  refTitle.textContent = "Quick reference — " + cat.label;
+  refSub.textContent = "What " + (v === null ? "1" : fmt(v)) + " " + fu.n.toLowerCase() + " equals in every other " + cat.label.toLowerCase() + " unit.";
+  refFromHead.textContent = "Unit";
+  refToHead.textContent = (v === null ? "1" : fmt(v)) + " " + fu.s + " equals";
+  var base = (v === null ? 1 : v);
+  refBody.innerHTML = "";
+  Object.keys(cat.units).forEach(function(k){
+    if(k === from) return;
+    var u = cat.units[k];
+    var tr = document.createElement("tr");
+    var td1 = document.createElement("td"); td1.textContent = u.n + " (" + u.s + ")";
+    var td2 = document.createElement("td"); td2.className = "num"; td2.textContent = fmt(convertValue(state.cat, base, from, k));
+    tr.appendChild(td1); tr.appendChild(td2); refBody.appendChild(tr);
+  });
+}
+document.getElementById("swapBtn").addEventListener("click", function(){
+  var a = fromUnit.value; fromUnit.value = toUnit.value; toUnit.value = a;
+  if(toVal.value !== "" && toVal.value !== "—"){ fromVal.value = toVal.value; }
+  update();
+});
+fromVal.addEventListener("input", update);
+fromUnit.addEventListener("change", update);
+toUnit.addEventListener("change", update);
+buildTabs(); fillUnits(); update();
+
+/* ---------- Articles ---------- */
+var ARTICLES = [
+  { slug:"metric-vs-imperial", tag:"Measurement systems", mins:"6 min read",
+    title:"Metric vs Imperial: The Two Measurement Systems Explained",
+    desc:"How each system is built, where each is used, and the handful of anchor conversions that let you move between them fluently." },
+  { slug:"how-to-convert-units", tag:"How-to", mins:"5 min read",
+    title:"How to Convert Units: A Simple Step-by-Step Method",
+    desc:"One reliable method — relationship, multiply or divide, calculate, sanity-check — that works for almost every conversion you will ever meet." },
+  { slug:"temperature-conversion-guide", tag:"Temperature", mins:"6 min read",
+    title:"Temperature Conversion: Celsius, Fahrenheit and Kelvin",
+    desc:"Why temperature needs real formulas instead of a single multiplier, the exact equations for all three scales, and shortcuts for everyday weather." },
+  { slug:"cooking-conversions-guide", tag:"Cooking", mins:"6 min read",
+    title:"Cooking Conversions: Cups, Grams and Millilitres",
+    desc:"Cups to millilitres is easy; cups to grams depends on the ingredient. Tables and rules for using any recipe in any kitchen." },
+  { slug:"history-of-measurement-units", tag:"History", mins:"6 min read",
+    title:"Why the World Uses Different Units: A Short History",
+    desc:"From cubits and thumbs to constants of nature — how local measures became two global systems, and why both are still with us." }
+];
+function cardHTML(a){
+  return "<a class='card' href='#/" + a.slug + "'><span class='tag'>" + a.tag + "</span><h3>" + a.title +
+    "</h3><p>" + a.desc + "</p><div class='mins'>" + a.mins + "</div></a>";
+}
+document.getElementById("homeCards").innerHTML = ARTICLES.map(cardHTML).join("");
+document.getElementById("articleCards").innerHTML = ARTICLES.map(cardHTML).join("");
+
+/* ---------- FAQ ---------- */
+var FAQ = [
+  ["How do I convert kilometres to miles?","Multiply the number of kilometres by 0.621371. For example, 10 km × 0.621371 = 6.21 miles. To go the other way, multiply miles by 1.609344 to get kilometres."],
+  ["What is the formula for converting Celsius to Fahrenheit?","Multiply the Celsius temperature by 9, divide by 5, then add 32. So 20 °C becomes (20 × 9 ÷ 5) + 32 = 68 °F."],
+  ["How many grams are in a pound?","One pound is exactly 453.59237 grams by international definition. For everyday kitchen use, rounding to 454 grams is close enough."],
+  ["What is the difference between a US gallon and a UK gallon?","A US gallon is 3.785 litres, while a UK (imperial) gallon is 4.546 litres — about 20% larger. Always check which gallon a recipe or fuel figure refers to."],
+  ["How do I convert inches to centimetres?","Multiply inches by 2.54. One inch is defined as exactly 2.54 centimetres, so a 10-inch object measures 25.4 cm."],
+  ["What is a hectare in acres?","One hectare equals 10,000 square metres, which is about 2.471 acres. A standard football pitch is roughly 0.7 hectares."],
+  ["How are kilobytes, megabytes and gigabytes related?","In decimal (SI) terms each step is 1,000 times the previous: 1 MB = 1,000 KB and 1 GB = 1,000 MB. Computers also use binary units — kibibytes, mebibytes and gibibytes — where each step is 1,024."],
+  ["What does PSI mean and how does it relate to bar?","PSI stands for pounds per square inch, the pressure unit common in the US. One bar equals about 14.5038 PSI, so a tyre at 2.2 bar is about 32 PSI."],
+  ["How fast is a knot in kilometres per hour?","One knot is one nautical mile per hour, which equals exactly 1.852 km/h. Knots are used in shipping and aviation because the nautical mile is tied to the Earth's geometry."],
+  ["Why does temperature need a formula instead of a simple multiplier?","Most unit pairs share the same zero point, so a single multiplier works. Temperature scales start at different zeros — 0 °C is 32 °F — so conversion needs both a multiplication and an offset, which is why the converter uses full formulas for temperature."]
+];
+function faqHTML(){
+  return FAQ.map(function(q){
+    return "<details class='faq-item'><summary>" + q[0] + "</summary><div class='ans'><p>" + q[1] + "</p></div></details>";
+  }).join("");
+}
+document.getElementById("faqList").innerHTML = faqHTML();
+document.getElementById("faqListPage").innerHTML = faqHTML();
+
+/* ---------- Router ---------- */
+var ROUTES = { "":"home", "articles":"articles", "metric-vs-imperial":"metric-vs-imperial",
+  "how-to-convert-units":"how-to-convert-units", "temperature-conversion-guide":"temperature-conversion-guide",
+  "cooking-conversions-guide":"cooking-conversions-guide", "history-of-measurement-units":"history-of-measurement-units",
+  "faq":"faq", "about":"about", "contact":"contact", "privacy":"privacy", "terms":"terms", "disclaimer":"disclaimer" };
+var TITLES = { home:"Unit Converter — Convert Length, Weight, Temperature & More | UnitConverterHub",
+  articles:"Articles | UnitConverterHub", faq:"Frequently Asked Questions | UnitConverterHub",
+  about:"About | UnitConverterHub", contact:"Contact | UnitConverterHub",
+  privacy:"Privacy Policy | UnitConverterHub", terms:"Terms of Use | UnitConverterHub", disclaimer:"Disclaimer | UnitConverterHub" };
+ARTICLES.forEach(function(a){ TITLES[a.slug] = a.title + " | UnitConverterHub"; });
+
+function route(){
+  var h = location.hash.replace(/^#\/?/, "").split("?")[0];
+  var page = ROUTES.hasOwnProperty(h) ? ROUTES[h] : "home";
+  var pages = document.querySelectorAll(".page");
+  for(var i=0;i<pages.length;i++){ pages[i].classList.toggle("on", pages[i].getAttribute("data-page")===page); }
+  var navKey = page;
+  if(ARTICLES.some(function(a){ return a.slug===page; })) navKey = "articles";
+  var links = document.querySelectorAll("nav.main a");
+  for(var j=0;j<links.length;j++){ links[j].classList.toggle("active", links[j].getAttribute("data-nav")===navKey); }
+  document.title = TITLES[page] || TITLES.home;
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange", route);
+route();
+})();
+</script>
+</body>
+</html>
